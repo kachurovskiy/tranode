@@ -12,7 +12,7 @@ WiFi remote-controlled car with a USB webcam built on Raspberry Pi and L293D chi
 
 ## Hardware
 
-Circuit diagram goes here.
+![image](https://user-images.githubusercontent.com/517919/227595927-4dc85a3e-a691-4916-92a1-ae459ad68234.png)
 
 ## Building steps
 
