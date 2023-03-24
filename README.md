@@ -1,4 +1,4 @@
-:warning: instructions below are provided as-is, without warranty of any kind. See [license](LICENSE.md) for more info.
+:warning: instructions below are provided as-is, without warranty of any kind. See [license](LICENSE) for more info.
 
 # Tranode
 
