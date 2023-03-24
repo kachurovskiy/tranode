@@ -16,7 +16,11 @@ WiFi remote-controlled car with a USB webcam built on Raspberry Pi and L293D chi
 
 ## Safety
 
-Using a powerbank instead of batteries with a step-down converter would improve the safety of this project. Power banks support charging and have short-circuit / under-voltage protection.
+Using a powerbank instead of batteries with a step-down converter would improve the safety of this project. Power banks support charging and have short-circuit / under-voltage protection but tend to limit the current which can be a problem since this project way exceeds the standard USB 500mA limit.
+
+![image](https://user-images.githubusercontent.com/517919/227649561-18022f8d-56c5-4830-b8bc-6469787887f8.png)
+
+Another safety feature would be some physical protection of the ON switch preventing accidental power-ons.
 
 ## Hardware
 
