@@ -1,3 +1,5 @@
+:warning: instructions below are provided as-is, without warranty of any kind. See [license](LICENSE.md) for more info.
+
 # Tranode
 
 WiFi remote-controlled car with a USB webcam built on Raspberry Pi and L293D chip for motor control.
