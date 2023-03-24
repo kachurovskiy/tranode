@@ -2,6 +2,8 @@
 
 WiFi remote-controlled car with a USB webcam built on Raspberry Pi and L293D chip for motor control.
 
+![image](https://user-images.githubusercontent.com/517919/227603769-f9e43c88-605b-44ed-b521-9997f9dcb234.png)
+
 ## Usage
 
 1. Turn on the power, wait 50 seconds for the device to boot and start the web server
@@ -13,6 +15,8 @@ WiFi remote-controlled car with a USB webcam built on Raspberry Pi and L293D chi
 ## Hardware
 
 ![image](https://user-images.githubusercontent.com/517919/227595927-4dc85a3e-a691-4916-92a1-ae459ad68234.png)
+
+![image](https://user-images.githubusercontent.com/517919/227603799-4a9cbb13-6569-4f44-8fca-1c829b479c84.png)
 
 ## Building steps
 
