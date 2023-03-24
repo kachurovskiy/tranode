@@ -1,0 +1,114 @@
+body {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  background-color: #BBB;
+  font-size: 26px;
+  user-select: none;
+  font-family: Verdana;
+  line-height: 150%;
+}
+
+button {
+  color: white;
+  background: black;
+  border: none;
+  opacity: 0.5;
+  font-size: 26px;
+}
+
+button:hover {
+  background: blue;
+}
+
+#video {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  pointer-events: none;
+}
+
+#fs {
+  color: white;
+  background: black;
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  cursor: pointer;
+  height: 46px;
+}
+
+#dpad {
+  width: 150px;
+  height: 150px;
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+}
+
+#dpad button {
+  width: 46px;
+  height: 46px;
+  font-size: 25px;
+  position: absolute;
+  user-select: none;
+}
+
+#dpadLeft {
+  left: -50px;
+}
+
+#dpadRight {
+  left: 50px;
+}
+
+#dpadForward {
+  top: -50px;
+}
+
+#dpadFf {
+  top: -100px;
+}
+
+#dpadBack {
+  top: 50px;
+}
+
+#cameraAngle {
+  position: fixed;
+  left: 20px;
+  top: 20vh;
+}
+
+#offButton {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  height: 46px;
+  cursor: pointer;
+}
+
+#debug {
+  position: fixed;
+  left: 20px;
+  bottom: 60px;
+  background: green;
+}
+
+#error {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  background: black;
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+  text-align: center;
+  padding: 20vh;
+}

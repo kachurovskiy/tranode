@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Tranode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  <script src="socket.io/socket.io.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <img id="video">
+  <button id="fs" onclick="fullscreen();">Fullscreen</button>
+  <div id="dpad">
+    <button id="dpadLeft" onclick="command('left')" ontouchstart="repeatCommand('left');"
+      ontouchend="repeatCommandStop();">L</button>
+    <button id="dpadRight" onclick="command('right')" ontouchstart="repeatCommand('right');"
+      ontouchend="repeatCommandStop();">R</button>
+    <button id="dpadForward" onclick="command('forward')" ontouchstart="repeatCommand('forward');"
+      ontouchend="repeatCommandStop();">F</button>
+    <button id="dpadBack" onclick="command('back')" ontouchstart="repeatCommand('back');"
+      ontouchend="repeatCommandStop();">B</button>
+    <button id="dpadOrient" ontouchstart="addOrientationListener();"
+      ontouchend="removeOrientationListener();">O</button>
+  </div>
+  <div id="debug"></div>
+  <button id="offButton" onclick="command('off'); window.close();">Off</button>
+  <div id="error" style="display: none;" onclick="window.location.reload();">
+    No connection.<br />Click to reload.</div>
+  <script type="text/javascript">
+    document.getElementById('video').src = `http://${window.location.hostname}:8080/?action=stream`;
+
+    var socket = io.connect();
+
+    function fullscreen() {
+      var el = document.documentElement;
+      var rfs = el.requestFullscreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+      rfs.call(el);
+    };
+
+    function command(value) {
+      socket.emit('command', value);
+    }
+
+    var intervalId = 0;
+    function repeatCommand(name) {
+      repeatCommandStop();
+      intervalId = setInterval(() => {
+        command(name);
+      }, 300);
+    }
+
+    function repeatCommandStop() {
+      if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = 0;
+      }
+    }
+
+    function showError() {
+      document.getElementById('error').style.display = '';
+    }
+
+    socket.on('off', showError);
+
+    window.addEventListener("keydown", function onKeyDown(event) {
+      switch (event.keyCode) {
+        case 68: command('right');
+        case 83: command('back');
+        case 65: command('left');
+        case 87: command('forward');
+      }
+    });
+
+    function addOrientationListener() {
+      if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+        DeviceOrientationEvent.requestPermission()
+          .then((state) => {
+            if (state === 'granted') {
+              window.addEventListener('deviceorientation', handleOrientation);
+            }
+          })
+          .catch(alert);
+      } else {
+        window.addEventListener('deviceorientation', handleOrientation);
+      }
+    }
+
+    function removeOrientationListener() {
+      window.removeEventListener('deviceorientation', handleOrientation);
+    }
+
+    function handleOrientation(e) {
+      const beta = Math.min(45, Math.max(-45, event.beta)); // -45 tilted left, 0 hotizontal, 45 tilted right
+      const leftMulti = beta >= 0 ? 1 : (45 + beta) / 45;
+      const rightMulti = beta <= 0 ? 1 : (45 - beta) / 45;
+      const gamma = Math.abs(event.gamma); // 0 to 90 with 90 at vertical
+      const fwd = event.gamma < 0 ? 1 : -1;
+      const scale = (90 - gamma) / 45;
+      const left = Math.round(255 * scale * (fwd > 0 ? leftMulti : rightMulti) * fwd);
+      const right = Math.round(255 * scale * rightMulti * fwd);
+      // Uncomment for debugging tilting logic. It's not perfect :)
+      // document.getElementById('debug').innerText = `${left} ${right}`;
+      socket.emit('speed', { left, right });
+    }
+  </script>
+</body>
+
+</html>
