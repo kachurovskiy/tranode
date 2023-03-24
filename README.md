@@ -14,6 +14,10 @@ WiFi remote-controlled car with a USB webcam built on Raspberry Pi and L293D chi
 4. When done, press Off button in the UI
 5. After 20 seconds, turn off the power
 
+## Safety
+
+Using a powerbank instead of batteries with a step-down converter would improve the safety of this project. Power banks support charging and have short-circuit / under-voltage protection.
+
 ## Hardware
 
 ![image](https://user-images.githubusercontent.com/517919/227595927-4dc85a3e-a691-4916-92a1-ae459ad68234.png)
