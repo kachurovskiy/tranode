@@ -5,7 +5,7 @@ WiFi remote-controlled car with a USB webcam built on Raspberry Pi and L293D chi
 ## Usage
 
 1. Turn on the power, wait 50 seconds for the device to boot and start the web server
-2. Connect to `tranode` WiFi
+2. Connect to `tranode` WiFi, open your RPi IP address in the web browser e.g. `http://10.42.0.1/`
 3. Drive around delivering drinks 🧉🍺🍼🏺🍾
 4. When done, press Off button in the UI
 5. After 20 seconds, turn off the power
