@@ -4,7 +4,8 @@
 
 ![image](https://user-images.githubusercontent.com/517919/228613800-60a954da-8a20-4a2f-bc22-8dfff7b057d9.png)
 
-WiFi remote-controlled car with a USB webcam built on Raspberry Pi and L293D chip for motor control.
+WiFi remote-controlled car with a USB webcam built on Raspberry Pi and L293D chip for motor control. https://www.youtube.com/watch?v=lV2_LIXbDQA
+
 
 ![image](https://user-images.githubusercontent.com/517919/227603769-f9e43c88-605b-44ed-b521-9997f9dcb234.png)
 
